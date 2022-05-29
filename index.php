@@ -85,35 +85,31 @@ session_start();
        <input type="email" name="email" class="form-control mb-2"  required>
 
        <label for="courses" class="form-label d-block mb-2">Courses</label>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" name="courses[]" value="Myanmar" class="form-check-input mb-2">
-                <label class="form-check-label" for="course1">Myanmar</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" name="courses[]" value="English" class="form-check-input mb-2">
-                <label class="form-check-label" for="course2">English</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" name="courses[]" value="Math" class="form-check-input mb-2">
-                <label class="form-check-label" for="course3">Math</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" name="courses[]" value="Physics" class="form-check-input mb-2">
-                <label class="form-check-label" for="course1">Physics</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" name="courses[]" value="Chemistry" class="form-check-input mb-2">
-                <label class="form-check-label" for="course1">Chemistry</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="radio" name="courses[]" value="Bio" class="form-check-input mb-2">
-                <label class="form-check-label" for="course1">Bio</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="radio" name="courses[]" value="Eco" class="form-check-input mb-2">
-                <label class="form-check-label" for="course1">Eco</label>
-            </div> 
+       
+       <?php 
+            $core_subjects = $db->query("SELECT * FROM core_subjects");
+            $core_datas = $core_subjects->fetchAll();
 
+            $elective_subjects = $db->query("SELECT * FROM elective_subjects");
+            $elective_datas = $elective_subjects->fetchAll();
+       ?>
+
+            <?php foreach($core_datas as $data) : ?>
+            <div class="form-check form-check-inline">
+                <input type="checkbox" name="courses[]" value="<?= $data-> courses ?>" class="form-check-input mb-2">
+                <label class="form-check-label" for="course<?= $data-> id ?>">
+                    <?= $data-> courses ?>
+                </label>
+            </div>
+            <?php endforeach ?>
+            <?php foreach($elective_datas as $data) : ?>
+            <div class="form-check form-check-inline">
+                <input type="radio" name="courses[]" value="<?= $data-> courses ?>" class="form-check-input mb-2">
+                <label class="form-check-label" for="course<?= $data-> id ?>">
+                    <?= $data-> courses ?>
+                </label>
+            </div>
+            <?php endforeach ?>
        <input type="submit" value="Register" class="btn btn-primary mt-4 d-block">
     </form>
     </div>
