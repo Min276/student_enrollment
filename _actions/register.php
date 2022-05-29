@@ -32,7 +32,7 @@
         <input type="password" name="password"  class="form-control" required>
 
         <input type="submit" value="Register" class="btn btn-primary mt-4">
-        <a href="login.php" class="btn btn-outline-primary  mt-4 ms-3">Login </a>
+        <a href="../auth/authcheck.php" class="btn btn-outline-primary  mt-4 ms-3">Login </a>
         </form>
         </div>
 </body>

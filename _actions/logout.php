@@ -4,4 +4,4 @@
 
   unset($_SESSION['admin']);
 
-  header("location: admin.php");
+  header("location: ../admin.php");

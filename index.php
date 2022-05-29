@@ -1,4 +1,4 @@
-<?php include('db.php') ?>
+<?php include('db/db.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,14 +63,14 @@ session_start();
         </tr>
         <?php endforeach ?>
     </table>
-    <a href="update.php">Register Again ?</a>
+    <a href="_actions/update.php">Register Again ?</a>
     
     </div>
 
     <?php else : ?>
     <div class="f-wrap">
     <h1 class="h2 mb-4">Register</h1>
-    <form action="student_register.php" method="post">
+    <form action="_actions/student_register.php" method="post">
 
        <label for="name" class="form-label">Name</label>
        <input type="text" name="name"  class="form-control mb-2" required>

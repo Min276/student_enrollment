@@ -1,4 +1,4 @@
-<?php include('db.php') ?>
+<?php include('db/db.php') ?>
 <?php 
    session_start(); 
    $is_admin = isset($_SESSION['admin']);
@@ -32,11 +32,13 @@
               Incorrect Credentials
             </div>
     <?php endif ?>
+
     <?php if (isset($_GET['registered'])): ?>
             <div class="alert alert-success">
               Successfully Registered! Please Log in.
             </div>
     <?php endif ?>
+
     <?php if($is_admin) :?>
     <div class="wrap">
     <h1>Student List</h1>
@@ -72,12 +74,12 @@
         </tr>
         <?php endforeach ?>
     </table>
-    <a href="logout.php">Log out</a>
+    <a href="_actions/logout.php">Log out</a>
     </div>
     <?php else :?>
     <div class="f-wrap">
     <h1 class="h2 mb-4">Log in</h1>
-    <form action="authcheck.php" method="post">
+    <form action="auth/authcheck.php" method="post">
 
        <label for="email" class="form-label">Email</label>
        <input type="text" name="email" class="form-control mb-2"  required>
@@ -86,7 +88,7 @@
        <input type="password" name="password"  class="form-control" required>
 
        <input type="submit" value="Login" class="btn btn-primary mt-4">
-       <a href="register.php" class="btn btn-outline-primary mt-4 ms-3">Register </a>
+       <a href="_actions/register.php" class="btn btn-outline-primary mt-4 ms-3">Register </a>
     </form>
     </div>
     <?php endif ?>

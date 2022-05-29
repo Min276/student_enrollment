@@ -1,6 +1,6 @@
 <?php
 
-    include('db.php');
+    include('../db/db.php');
 
     session_start();
 
@@ -29,4 +29,4 @@
 
     $_SESSION['register'] = true;
 
-    header("location: index.php". "?enrolled=$id");
+    header("location: ../index.php". "?enrolled=$id");

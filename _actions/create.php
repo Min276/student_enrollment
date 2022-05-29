@@ -1,6 +1,6 @@
 <?php
   
-   include('db.php');
+   include('../db/db.php');
 
    $name = $_POST['name'];
    $email = $_POST['email'];
@@ -14,6 +14,6 @@
             ":password" => $password,
         ]);
 
-    header("location: admin.php?registered=1");
+    header("location: ../admin.php?registered=1");
 
     

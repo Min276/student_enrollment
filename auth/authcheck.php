@@ -1,5 +1,5 @@
 <?php
-   include('db.php');
+   include('../db/db.php');
 
    session_start();
 
@@ -20,9 +20,9 @@
 
     if($check){
         $_SESSION['admin'] = true;
-        header("location: admin.php");
+        header("location: ../admin.php");
     }else {
         unset($_SESSION['admin']);
-        header("location: admin.php?auth_error=1");
+        header("location: ../admin.php?auth_error=1");
     }
 
